@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userInput = document.getElementById("user-input");
     const sendBtn = document.getElementById("send-btn");
 
-    const apiKey = "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";
+    const apiKey = "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";
 
     const appendMessage = (message, sender) => {
         const messageElement = document.createElement("div");
@@ -21,14 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
         userInput.value = "";
 
         try {
-            const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${apiKey}`
                 },
                 body: JSON.stringify({
-                    model: "gpt-3.5-turbo",
+                    model: "google/gemma-7b-it:free",
                     messages: [{ role: "user", content: message }]
                 })
             });
